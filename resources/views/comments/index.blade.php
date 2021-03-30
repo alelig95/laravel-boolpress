@@ -13,7 +13,7 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Comment</th>
+            <th scope="col">Content</th>
             <th scope="col">Post title</th>
           </tr>
         </thead>
