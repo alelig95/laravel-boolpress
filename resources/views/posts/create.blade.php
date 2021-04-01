@@ -10,7 +10,7 @@
 <body>
 
     <div class="container">
-        <form action=" {{ route('posts.store') }}" method="post">
+        <form action=" {{ route('posts.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="form-group">
@@ -28,6 +28,10 @@
             <div class="form-group">
                 <label for="body">Body</label>
                 <textarea class="form-control" id="body" name="body" rows="6"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="img">Immagine</label>
+                <input class="form-control" type="file" name="img" id="img">
             </div>
             <div class="form-group">
                 <label for="tags[]">Tags</label>

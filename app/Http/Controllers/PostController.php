@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Post;
 use App\Author;
+use App\Mail\PostCreated;
+use Illuminate\Support\Facades\Mail;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -42,11 +44,16 @@ class PostController extends Controller
     {
         $data = $request->all();
 
+        $path = $request->file('img')->store('images');
+
         $post = new Post();
         $post->fill($data);
+        $post->img = $path;
         $post->save();
 
         $post->tags()->attach($data['tags']);
+
+        Mail::to('ciao@tutti.it')->send(new PostCreated($post));
 
         return redirect()->route('posts.index');
     }

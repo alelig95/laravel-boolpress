@@ -16,6 +16,7 @@
             <th scope="col">Title</th>
             <th scope="col">Body</th>
             <th scope="col">Author</th>
+            <th scope="col">Img</th>
             <th scope="col">Tags</th>
           </tr>
         </thead>
@@ -26,6 +27,7 @@
                     <td>{{ $post->title }}</a></td>
                     <td>{{ $post->body }}</td>
                     <td>{{ $post->author->name}} {{ $post->author->surname }}</td>
+                    <td><img src="{{ asset($post->img) }}" width="100" alt=""></td>
                     <td>
                         @foreach ($post->tags as $tag)
                             {{$tag->name}},
